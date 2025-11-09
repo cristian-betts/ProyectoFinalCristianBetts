@@ -1,5 +1,5 @@
 import  express from 'express';
-import router from express.Router();
+const router = express.Router();
 
 //array inicial de juegos 
 // juegos.js
