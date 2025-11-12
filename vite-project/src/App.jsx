@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/header';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import Home from './pages/Home'
 import AddGame from './pages/AddGame';
 import AddReview from './pages/AddReview';
@@ -17,7 +17,7 @@ function App() {
       <Header />
 
       {/* Contenido dinámico (las páginas cambian aquí) */}
-      <main style={{ padding: '20px' }}>
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/reviews" element={<Reviews />} />

@@ -1,25 +1,16 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-function Header() {
-  // Estado que controla la apertura/cierre del menú hamburguesa
-  const [menuOpen, setMenuOpen] = useState(false);
+import React, { useState } from "react";
+import "../App.css";
 
-  // Función que alterna el estado del menú
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+const Header = () => {
+  // Estado para abrir o cerrar el menú en móviles
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="header">
-      {/* Título principal */}
-      <h1 className="logo">GameTracker</h1>
+      <div className="logo">
+        <h1>🎮 GameTracker</h1>
+      </div>
 
-      {/* Botón menú hamburguesa */}
-      <button className="menu-button" onClick={toggleMenu}>
-        ☰
-      </button>
-
-      {/* Menú de navegación */}
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
         <ul>
           <Link to="/">Inicio</Link>
@@ -29,7 +20,17 @@ function Header() {
           <Link to="/dashboard">Dashboard</Link>
         </ul>
       </nav>
+
+      <div
+        className={`menu-toggle ${menuOpen ? "open" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </header>
   );
-}
+};
+
 export default Header;
