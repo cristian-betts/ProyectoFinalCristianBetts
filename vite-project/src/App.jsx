@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/header';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home'
 import AddGame from './pages/AddGame';
@@ -8,7 +8,6 @@ import AddReview from './pages/AddReview';
 import Dashboard from './pages/Dashboard';
 import Reviews from './pages/Reviews';
 import './App.css'
-
 function App() {
   
   return (

@@ -31,7 +31,7 @@ const Home = () => {
               titulo={juego.titulo}
               genero={juego.genero}
               descripcion={juego.descripcion}
-              imagen={juego.imagen}
+              imagen={juego.imagenPortada}
             />
           ))
         ) : (
