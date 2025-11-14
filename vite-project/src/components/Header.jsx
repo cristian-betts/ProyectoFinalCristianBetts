@@ -23,7 +23,7 @@ const Header = () => {
       </nav>
 
       <div
-        className={`menu-toggle ${menuOpen ? "open" : ""}`}
+        className={`hamburger ${menuOpen ? "open" : ""}`}
         onClick={() => setMenuOpen(!menuOpen)}
       >
         <span></span>

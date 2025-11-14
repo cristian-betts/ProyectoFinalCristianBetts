@@ -73,21 +73,6 @@ const GameForm = () => {
     }
   };
 
-  // Eliminar un juego existente
-  const handleDelete = async (e) => {
-    e.preventDefault();
-    if (!id) return alert("Por favor, ingresa el ID del juego a eliminar");
-    if (!confirm("¿Seguro que deseas eliminar este juego?")) return;
-
-    try {
-      await fetch(`${apiUrl}/${id}`, { method: "DELETE" });
-      alert("Juego eliminado con éxito");
-      limpiarCampos();
-    } catch (error) {
-      console.error("Error al eliminar el juego:", error);
-    }
-  };
-
   // Limpia todos los campos del formulario
   const limpiarCampos = () => {
     setTitulo("");
@@ -181,7 +166,6 @@ const GameForm = () => {
         <div className="form-buttons">
           <button onClick={handleCreate}>Crear</button>
           <button onClick={handleUpdate}>Actualizar</button>
-          <button onClick={handleDelete}>Eliminar</button>
         </div>
       </form>
     </div>

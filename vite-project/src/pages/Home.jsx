@@ -32,6 +32,10 @@ const Home = () => {
               genero={juego.genero}
               descripcion={juego.descripcion}
               imagen={juego.imagenPortada}
+              plataforma={juego.plataforma}
+              año={juego.añoLanzamiento}
+              completado={juego.completado}
+              desarrollador={juego.desarrollador}
             />
           ))
         ) : (
