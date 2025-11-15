@@ -4,8 +4,9 @@ import '../App.css';
 function ReviewCard({ juegoId, textoReseña, puntuacion, dificultad, horasJugadas, recomendaria, fechaCreacion }) {
 return (
 <div className="review-card">
-<p className="review-game">Juego ID: {juegoId}</p>
+<p className="review-game">Nombre del Juego: {juegoId}</p>
 <div className="review-stars">
+<p>Puntuación: </p>
 {"★".repeat(puntuacion)}
 {"☆".repeat(5 - puntuacion)}
 </div>

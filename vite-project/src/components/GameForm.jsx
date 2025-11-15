@@ -57,7 +57,7 @@ const GameForm = () => {
           titulo,
           genero,
           plataforma,
-          añoLanzamiento,
+          anioLanzamiento,
           desarrollador,
           descripcion,
           imagenUrl,
@@ -164,8 +164,8 @@ const GameForm = () => {
         </label>
 
         <div className="form-buttons">
-          <button onClick={handleCreate}>Crear</button>
-          <button onClick={handleUpdate}>Actualizar</button>
+          <button type= "button" onClick={handleCreate}> Crear </button>
+          <button type= "button" onClick={handleUpdate}>Actualizar</button>
         </div>
       </form>
     </div>

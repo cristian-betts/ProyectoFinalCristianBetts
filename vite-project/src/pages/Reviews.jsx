@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard";
 import "../App.css"
 
@@ -24,19 +23,20 @@ fetchResena();
 
 return (
 <div className="reviews-container">
-<h2 className="reviews-title">Reseñas del Juego</h2>
+<h2 className="reviews-title"> Reseñas del Juego</h2>
 
 
 <div className="reviews-list">
 {Resena.length > 0 ? (
 Resena.map((Resena) => (
 <ReviewCard 
-juegoId={Resena.juegoId} 
+juegoId={Resena.juegoId.titulo} 
 puntuacion={Resena.puntuacion}
 textoReseña={Resena.textoReseña}
 horasJugadas={Resena.horasJugadas}
 recomendaria={Resena.recomendaria}
 fechaCreacion={Resena.fechaCreacion}
+dificultad={Resena.dificultad}
 />
 ))
 ) : (

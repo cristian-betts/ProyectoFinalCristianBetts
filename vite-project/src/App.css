@@ -585,10 +585,10 @@ background: rgba(255, 0, 0, 0.2);
 color: #ff4b4b;
 box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
 }
+
 /* ===================================== */
 /* ESTILOS REVIEWS */
 /* ===================================== */
-
 
 .reviews-container {
 padding: 20px;
@@ -601,6 +601,7 @@ color: #b8e3ff;
 font-size: 26px;
 color: #00eaff;
 margin-bottom: 20px;
+text-align: center;
 }
 
 .reviews-list {
@@ -608,7 +609,7 @@ display: flex;
 flex-direction: column;
 gap: 20px;
 max-width: 500px;
-margin: 0 auto;
+margin: 0;
 }
 
 .no-reviews {
