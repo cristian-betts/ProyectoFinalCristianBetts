@@ -23,10 +23,11 @@ const GameCard = ({ titulo, id, genero, descripcion, imagen, plataforma, año, d
       <div className="game-info">
         <h2 className="game-title">{titulo}</h2>
         <p className="game-id">ID: {id}</p>
-        <p className="game-genre">{genero}</p>
+        <p className="game-genre">Género: {genero}</p>
         <p className="game-description">{descripcion}</p>
         <p className="game-info-row">Plataforma: <span>{plataforma}</span> — Año: <span>{año}</span></p>
         <p className="game-dev">Desarrollador: {desarrollador}</p>
+        <p className="game-dev">Descripción: {descripcion}</p>
         <p className="game-completed">Completado: {completado ? "Sí" : "No"} </p>
         <div className="game-buttons">
         <button className="btn-delete" onClick={() => handleDelete(id)}>Eliminar</button>

@@ -7,10 +7,10 @@ const GameForm = () => {
   const [titulo, setTitulo] = useState("");
   const [genero, setGenero] = useState("");
   const [plataforma, setPlataforma] = useState("");
-  const [anioLanzamiento, setAnioLanzamiento] = useState("");
+  const [añoLanzamiento, setAñoLanzamiento] = useState("");
   const [desarrollador, setDesarrollador] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  const [imagenUrl, setImagenUrl] = useState("");
+  const [imagenPortada, setImagenPortada] = useState("");
   const [completado, setCompletado] = useState(false);
   const [id, setId] = useState("");
 
@@ -28,10 +28,10 @@ const GameForm = () => {
           titulo,
           genero,
           plataforma,
-          anioLanzamiento,
+          añoLanzamiento,
           desarrollador,
           descripcion,
-          imagenUrl,
+          imagenPortada,
           completado,
         }),
       });
@@ -49,20 +49,22 @@ const GameForm = () => {
     e.preventDefault();
     if (!id) return alert("Por favor, ingresa el ID del juego a actualizar");
 
+    //objeto con los datos actualizados, manteniendo los existentes
+    const actualizarJuego = {
+      titulo: titulo || juego.titulo,
+      genero: genero || juego.titulo,
+      añoLanzamiento: añoLanzamiento || juego.añoLanzamiento,
+      desarrollador: desarrollador || juego.desarrollador,
+      descripcion: descripcion || juego.descripcion,
+      imagenPortada: imagenPortada || juego.imagenPortada,
+      completado: completado !== undefined ? completado: juego.completado
+    };
+
     try {
       const res = await fetch(`${apiUrl}/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          titulo,
-          genero,
-          plataforma,
-          anioLanzamiento,
-          desarrollador,
-          descripcion,
-          imagenUrl,
-          completado,
-        }),
+        body: JSON.stringify(actualizarJuego),
       });
 
       const data = await res.json();
@@ -78,10 +80,10 @@ const GameForm = () => {
     setTitulo("");
     setGenero("");
     setPlataforma("");
-    setAnioLanzamiento("");
+    setAñoLanzamiento("");
     setDesarrollador("");
     setDescripcion("");
-    setImagenUrl("");
+    setImagenPortada("");
     setCompletado(false);
     setId("");
   };
@@ -91,7 +93,7 @@ const GameForm = () => {
       <h2>Gestión de Juegos</h2>
 
       <form className="game-form">
-        <label>ID del juego (para actualizar o eliminar)</label>
+        <label>ID del juego (para actualizar)</label>
         <input
           type="text"
           value={id}
@@ -126,8 +128,8 @@ const GameForm = () => {
         <label>Año de lanzamiento</label>
         <input
           type="number"
-          value={anioLanzamiento}
-          onChange={(e) => setAnioLanzamiento(e.target.value)}
+          value={añoLanzamiento}
+          onChange={(e) => setAñoLanzamiento(e.target.value)}
           required
         />
 
@@ -149,8 +151,8 @@ const GameForm = () => {
         <label>URL de imagen</label>
         <input
           type="text"
-          value={imagenUrl}
-          onChange={(e) => setImagenUrl(e.target.value)}
+          value={imagenPortada}
+          onChange={(e) => setImagenPortada(e.target.value)}
           required
         />
 

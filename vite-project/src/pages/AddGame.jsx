@@ -3,7 +3,7 @@ import '../App.css';
 
 const AddGame = () => {
   return (
-    <div>
+    <div className="game-form">
       <h1>Formulario de Gestión</h1>
       <GameForm />
     </div>
