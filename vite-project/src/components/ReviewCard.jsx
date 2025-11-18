@@ -1,10 +1,12 @@
 import React from "react";
 import '../App.css';
 
-function ReviewCard({ juegoId, textoReseña, puntuacion, dificultad, horasJugadas, recomendaria, fechaCreacion }) {
+function ReviewCard({ _id, juegoId, idJuego, textoReseña, puntuacion, dificultad, horasJugadas, recomendaria, fechaCreacion }) {
 return (
 <div className="review-card">
+<p className="review-game">Id de la reseña: {_id}</p>
 <p className="review-game">Nombre del Juego: {juegoId}</p>
+<p className="review-game">Id del juego: {idJuego}</p>
 <div className="review-stars">
 <p>Puntuación: </p>
 {"★".repeat(puntuacion)}

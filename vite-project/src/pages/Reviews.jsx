@@ -30,6 +30,8 @@ return (
 {Resena.length > 0 ? (
 Resena.map((Resena) => (
 <ReviewCard 
+_id={Resena._id}
+idJuego={Resena.juegoId._id}
 juegoId={Resena.juegoId.titulo} 
 puntuacion={Resena.puntuacion}
 textoReseña={Resena.textoReseña}

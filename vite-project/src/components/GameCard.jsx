@@ -10,7 +10,7 @@ const GameCard = ({ titulo, id, genero, descripcion, imagen, plataforma, año, d
   const navigate = useNavigate();
   const handleDelete = async (id) => {
   try {
-    await fetch(`http://localhost:3000/api/juegos/${id}`, { method: "DELETE" });
+    await fetch(`http://localhost:3000/api/juegos/${id}`, { method: "DELETE" } );
     alert("Juego eliminado correctamente");
     window.location.reload();
   } catch (error) {
