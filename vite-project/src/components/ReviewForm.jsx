@@ -52,6 +52,49 @@ const ReviewForm = () => {
     }
   };
 
+  // Actualizar una reseña existente
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    if (!_id) return alert("Por favor, ingresa el ID de la reseña a actualizar");
+    set_Id(_id);
+    setJuegoId(juegoId);
+    setPuntuacion(puntuacion);
+    setTextoReseña(textoReseña);
+    setHorasJugadas(horasJugadas);
+    setDificultad(dificultad);
+    setRecomendaria(recomendaria);
+
+    try {
+      const res = await fetch(`http://localhost:3000/api/resenas/${_id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+           _id,
+           juegoId,
+           puntuacion,
+           textoReseña,
+           horasJugadas,
+           dificultad,
+           recomendaria,
+        }),
+      });
+
+      const data = await res.json();
+      alert(`Reseña actualizada`);
+      // Limpia el formulario
+      set_Id("");
+      setJuegoId("");
+      setPuntuacion(0);
+      setTextoReseña("");
+      setHorasJugadas("");
+      setDificultad("");
+      setRecomendaria(false);
+      setResena(data);
+    } catch (error) {
+      console.error("Error al actualizar la reseña:", error);
+    }
+  };
+
   // Renderiza una estrella llena o vacía dependiendo de la puntuación
   const renderStars = () => {
     return [...Array(5)].map((_, index) => {
@@ -72,7 +115,7 @@ const ReviewForm = () => {
     <div className="review-form-container">
       <h2 className="review-form-title">Crear Reseña</h2>
 
-      <form className="review-form" onSubmit={handleSubmit}>
+      <form className="review-form">
         {/* ID del Juego */}
         <div className="form-group">
           <label>ID del Juego</label>
@@ -148,10 +191,10 @@ const ReviewForm = () => {
           />
         </div>
 
-        <button type="submit" className="submit-btn">
+        <button type="submit" className="submit-btn" onClick={handleSubmit}>
           Guardar Reseña
         </button>
-        <button type="submit" className="submit-btn">
+        <button type="submit" className="submit-btn" onClick={handleUpdate}>
           Actualizar Reseña
         </button>
       </form>
